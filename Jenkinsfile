@@ -11,13 +11,13 @@ pipeline {
 
         stage('Build') {
             steps {
-              echo "npm run ng -- build"
+              bat '''npm run ng -- build'''
             }
         }
 
         stage('Lint') {
             steps {
-              echo "npm run ng -- lint"
+              bat '''npm run ng -- lint'''
             }
         }
     }
