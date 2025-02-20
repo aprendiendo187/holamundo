@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Asegúrate de que estás en el directorio correcto
-                    npm install
+                    sh "npm install"
                 }
             }
         }
@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    npm run ng -- build
+                    sh "npm run ng -- build"
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline {
         stage('Lint') {
             steps {
                 script {
-                    npm run ng -- lint
+                    sh "npm run ng -- lint"
                 }
             }
         }
