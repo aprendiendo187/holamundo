@@ -4,26 +4,24 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                script {
-                    // Asegúrate de que estás en el directorio correcto
                     sh "npm install"
-                }
+                
             }
         }
 
         stage('Build') {
             steps {
-                script {
+                
                     sh "npm run ng -- build"
-                }
+                
             }
         }
 
         stage('Lint') {
             steps {
-                script {
+                
                     sh "npm run ng -- lint"
-                }
+                
             }
         }
     }
