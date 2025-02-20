@@ -4,24 +4,19 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                    sh "npm install"
-                
+              npm install
             }
         }
 
         stage('Build') {
             steps {
-                
-                    sh "npm run ng -- build"
-                
+              npm run ng -- build
             }
         }
 
         stage('Lint') {
             steps {
-                
-                    sh "npm run ng -- lint"
-                
+              npm run ng -- lint
             }
         }
     }
