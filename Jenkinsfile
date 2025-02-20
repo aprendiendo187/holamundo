@@ -4,7 +4,10 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-              echo "npm install"
+              withNPM(npmrcConfig:'my-custom-npmrc') {
+                echo "Performing npm build..."
+                sh 'npm install'
+              }
             }
         }
 
