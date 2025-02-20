@@ -5,7 +5,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    
+                    // Asegúrate de que estás en el directorio correcto
                     sh 'npm install'
                 }
             }
@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'npm run ng -- build'
+                    sh 'ng build'
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline {
         stage('Lint') {
             steps {
                 script {
-                    sh 'npm run ng -- lint'
+                    sh 'ng lint'
                 }
             }
         }
