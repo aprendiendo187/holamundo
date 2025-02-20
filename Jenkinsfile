@@ -5,9 +5,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
               echo "Performing npm build..."
-              dir('FirstPipeline'){
-                sh 'npm install'
-              }
+              sh "npm install"
             }
         }
 
