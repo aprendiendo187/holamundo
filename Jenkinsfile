@@ -21,4 +21,18 @@ pipeline {
             }
         }
     }
+    post {
+      always {
+          // Puedes agregar acciones a realizar siempre, como limpiar
+          echo "cleanWs()"
+      }
+      success {
+          // Acciones a realizar si el pipeline fue exitoso
+          echo 'Pipeline completed successfully!'
+      }
+      failure {
+          // Acciones a realizar si el pipeline falló
+          echo 'Pipeline failed!'
+      }
+    }
 }
