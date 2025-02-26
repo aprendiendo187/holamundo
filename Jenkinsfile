@@ -20,6 +20,11 @@ pipeline {
               bat '''npm run ng -- lint'''
             }
         }
+        stage('Cypress') {
+            steps {
+              bat '''npm run cypress:open'''
+            }
+        }
     }
     post {
       always {
