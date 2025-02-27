@@ -15,6 +15,12 @@ pipeline {
             }
         }
 
+        stage('Build') {
+            steps {
+              bat '''npm run ng -- test'''
+            }
+        }
+
         stage('Lint') {
             steps {
               bat '''npm run ng -- lint'''
@@ -22,7 +28,7 @@ pipeline {
         }
         stage('Cypress') {
             steps {
-              bat '''npm run cypress:open'''
+              bat '''npx cypress run'''
             }
         }
     }
