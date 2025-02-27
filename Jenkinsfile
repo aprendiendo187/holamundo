@@ -4,42 +4,46 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                script {
-                    // Asegúrate de que estás en el directorio correcto
-                    sh 'npm install'
-                }
+              echo "Performing npm build..."
+              bat '''npm install'''
             }
         }
 
         stage('Build') {
             steps {
-                script {
-                    sh 'ng build'
-                }
+              bat '''npm run ng -- build'''
+            }
+        }
+
+        stage('Build') {
+            steps {
+              bat '''npm run ng -- test'''
             }
         }
 
         stage('Lint') {
             steps {
-                script {
-                    sh 'ng lint'
-                }
+              bat '''npm run ng -- lint'''
+            }
+        }
+        stage('Cypress') {
+            steps {
+              bat '''npx cypress run'''
             }
         }
     }
-
     post {
-        always {
-            // Puedes agregar acciones a realizar siempre, como limpiar
-            cleanWs()
-        }
-        success {
-            // Acciones a realizar si el pipeline fue exitoso
-            echo 'Pipeline completed successfully!'
-        }
-        failure {
-            // Acciones a realizar si el pipeline falló
-            echo 'Pipeline failed!'
-        }
+      always {
+          // Puedes agregar acciones a realizar siempre, como limpiar
+          echo "cleanWs()"
+      }
+      success {
+          // Acciones a realizar si el pipeline fue exitoso
+          echo 'Pipeline completed successfully!'
+      }
+      failure {
+          // Acciones a realizar si el pipeline falló
+          echo 'Pipeline failed!'
+      }
     }
 }

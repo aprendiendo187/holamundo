@@ -1,5 +1,28 @@
 <h1> Hola Mundo</h1>
 
-<h3 scope="col">Hola</h3>
+<h3>Hola</h3>
 
 <h4>Que hace</h4>
+
+<button type="button" (click)="restar()">Restar</button>
+<span>{{valores}}</span>
+<button type="button" (click)="sumar()">Sumar</button>
+
+
+
+<input
+  type="text"
+  minlength="5"
+  maxlength="10"
+  placeholder="Escribe aquí"
+  [(ngModel)]="texto"
+/>
+
+
+
+<button type="button" (click)="obtenerDatos()">Obtener Datos</button>
+<div *ngIf="datos">
+  <h5>Datos Obtenidos:</h5>
+  <pre>{{ datos | json }}</pre>
+</div>
+
