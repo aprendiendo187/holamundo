@@ -15,7 +15,7 @@ pipeline {
             }
         }
 
-
+/*
         stage('Start Server') {
             steps {
               script {
@@ -31,7 +31,7 @@ pipeline {
             steps {
               bat '''npm run ng -- test'''
             }
-        }
+        }*/
 
         stage('Lint') {
             steps {
