@@ -20,7 +20,7 @@ pipeline {
             steps {
               script {
                   // Iniciar el servidor de Angular en segundo plano
-                  bat 'npm run ng -- serve - o'
+                  bat 'npm run ng -- serve'
                   // Esperar unos segundos para asegurarse de que el servidor esté en funcionamiento
                   sleep(10) // Ajusta el tiempo según sea necesario
               }
