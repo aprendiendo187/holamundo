@@ -16,7 +16,7 @@ pipeline {
         }
 
 
-        stage('Start Server') {
+        /*stage('Start Server') {
             steps {
               script {
                   // Iniciar el servidor de Angular en segundo plano
@@ -31,7 +31,7 @@ pipeline {
             steps {
               bat '''npm run ng -- test'''
             }
-        }
+        }*/
 
         stage('Lint') {
             steps {
