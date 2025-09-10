@@ -57,6 +57,9 @@ pipeline {
       failure {
           // Acciones a realizar si el pipeline falló
           echo 'Pipeline failed!'
+          mail to: 'wgtc16@gmail.com',
+            subject: "Jenkins Build Failed: ${env.JOB_NAME}",
+            body: "Check console output at ${env.BUILD_URL}"
       }
     }
 }
