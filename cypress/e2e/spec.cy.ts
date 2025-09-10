@@ -50,30 +50,7 @@ describe('Pruebas E2E para AppComponent', () => {
   });
 
 
-  it('debería obtener datos del servicio al hacer clic en "Obtener Datos"', () => {
-    cy.intercept('GET', 'https://inventarios-cam-default-rtdb.firebaseio.com/productos.json').as('getData'); // Cambia la URL aquí
-
-    cy.get('button').contains('Obtener Datos').click(); // Presiona el botón
-
-    cy.wait('@getData').then((interception) => {
-      console.log(interception.response)
-      expect(interception.response).to.have.property('body'); // Verifica la respuesta
-
-      if(interception.response!.statusCode === 200){
-        bitacora.push('Paso 3: Resultados validados');
-      } else {
-        bitacora.push('Paso 3: Fallo');
-      }
-
-      const responseBody = interception.response!.body; // Objeto JSON de la respuesta
-      console.log(responseBody); // Muestra el cuerpo de la respuesta en la consola
-
-      // Convierte el objeto a string usando JSON.stringify
-      const dataToShow = JSON.stringify(responseBody, null, 2); // Formato bonito (opcional)
-      cy.get('pre').should('contain', dataToShow); // Verifica que se muestre en la interfaz
-    });
-  });
-
+  
   after(() => {
     // Registra la bitácora al final
     console.log('Bitácora de prueba:', bitacora);

@@ -38,12 +38,12 @@ pipeline {
               bat '''npm run ng -- lint'''
             }
         }
-        /*stage('Cypress') {
+        stage('Cypress') {
 
             steps {
               bat '''npx cypress run'''
             }
-        }*/
+        }
     }
     post {
       always {
