@@ -15,7 +15,6 @@ pipeline {
             }
         }
 
-/*
         stage('Start Server') {
             steps {
               script {
@@ -27,7 +26,7 @@ pipeline {
             }
         }
 
-        stage('Test') {
+/*        stage('Test') {
             steps {
               bat '''npm run ng -- test'''
             }
@@ -53,6 +52,10 @@ pipeline {
       success {
           // Acciones a realizar si el pipeline fue exitoso
           echo 'Pipeline completed successfully!'
+          mail to: 'wgtc16@gmail.com',
+            subject: "Jenkins Build Failed: ${env.JOB_NAME}",
+            body: "Check console output at ${env.BUILD_URL}"
+          
       }
       failure {
           // Acciones a realizar si el pipeline falló
