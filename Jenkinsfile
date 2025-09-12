@@ -14,7 +14,7 @@ pipeline {
               bat '''npm run ng -- build'''
             }
         }
-
+/*
         stage('Start Server') {
             steps {
               script {
@@ -26,7 +26,7 @@ pipeline {
             }
         }
 
-/*        stage('Test') {
+        stage('Test') {
             steps {
               bat '''npm run ng -- test'''
             }
